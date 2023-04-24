@@ -521,3 +521,118 @@ margin-top: 20px;
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+/* responsive design  */
+
+
+@media only screen and (max-width: 1000px) {
+
+  #tittle{
+    width: 400px;
+  }
+  .navbar{
+
+    width: 400px;
+   
+  }
+  
+
+  .nav li a{
+     
+      font-size: 16px;
+      
+  }
+  
+}
+
+
+@media only screen and (max-width: 780px) {
+
+
+  .search-bar{
+    scale: 0.8;
+  }
+  .add1{
+    display: flex;
+    justify-content: center;
+    
+  }
+.modal{
+ width: 500px;
+}
+
+}
+
+@media only screen and (max-width: 650px) {
+  .bottom{
+    scale: 0.8;
+  }
+  #tittle{
+    scale: 0.8;
+    width: 250px;
+  }
+}
+
+@media only screen and (max-width: 570px){
+  
+  .navbar{
+    display: none;
+  }
+  #tittle{
+    
+    width: 100px;
+  }
+  .top{
+    justify-content: center;
+  }
+  .modal{
+    width: 450px;
+   }
+   .midtop{
+    scale: 0.8;
+   }
+   .search-bar{
+    scale: 0.7;
+  }
+}
+
+@media only screen and (max-width: 500px){
+
+  .search-bar{
+    scale: 0.7;
+  }
+  #job-container{
+    scale: 0.8;
+  }
+  .modal{
+    width: 350px;
+   }
+}
+@media only screen and (max-width: 420px){
+  .search-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+
+
+
+
+
+
+
+
+

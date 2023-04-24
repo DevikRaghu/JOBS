@@ -116,15 +116,45 @@ const len = jobs.length;
 
 
 
+let selectedJobs = [];
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const q = urlParams.get('q');
+const type = urlParams.get('type');
+
+if (q) {
+   jobs.forEach(job => {
+     const searchTerm = q;
+     const regex = new RegExp(searchTerm, "gi");
+     const testString = job.jobTitle;
+     const test = regex.test(testString);
+
+     if (test) {
+       selectedJobs.push(job);
+     }
+   });
+}
+
+else if (type) {
+  jobs.forEach(job => {
+     if (type === 'part-time') {
+       if (job.jobType === 'Part Time') {
+         selectedJobs.push(job);
+       }
+     }
+     else if (type === 'full-time') {
+       if (job.jobType === 'Full Time') {
+         selectedJobs.push(job);
+       }
+     }
+  });
+}
 
 
 
 
-const jobList = jobs.map((job) => {
-
-   
-        
-    
+const jobList = selectedJobs.map((job) => {
   return `
     <div id="job${job.id}" class="jobs">
       <div class="high">
@@ -145,53 +175,12 @@ const jobList = jobs.map((job) => {
       </div>
     </div>
   `;
-
-   
-
 });
 
 
 document.querySelector('#job-container').innerHTML = jobList.join('');
 
 
-for (let i = 7; i <= len; i++) {
-    const jobDiv = document.getElementById(`job${i}`);
-    
-    if (jobDiv && i > 6) {
-      jobDiv.style.display = 'none';
-      
-    }
-  }
-
-
-
-
-
-
-
-const viewAllBtn = document.getElementById('view-more-btn');
-const jobssss = document.querySelectorAll('.jobs');
-
-viewAllBtn.addEventListener('click', () => {
-  jobssss.forEach((job) => {
-    job.style.display = 'block';
-  });
-});
-
-
-
-
-
-// const viewAllLink = document.getElementById('view-more-btn');
-// const jobElements = document.querySelectorAll('.hidden');
-
-// viewAllLink.addEventListener('click', () => {
-//   jobElements.for(hidden => {
-//     hidden.style.display = hidden.style.display === 'none' ? 'block' : 'none';
-//   });
-
-//   viewAllLink.textContent = viewAllLink.textContent === 'View All' ? 'Hide' : 'View All';
-// });
 
 
 
@@ -211,11 +200,17 @@ viewAllBtn.addEventListener('click', () => {
 
 
 
-// Creating modals to view full job posting
 
 
 
-const modalList = jobs.map((job) => {
+
+
+
+
+
+
+
+const modalList = selectedJobs.map((job) => {
     return `
     <div class="modal-container" id="modal-${job.id}">
     <div class="modal">
@@ -275,44 +270,6 @@ const modalList = jobs.map((job) => {
     });
 
 
-// const modalContainer = document.querySelector('.modal-container');
-// const openModalLink1 = document.querySelector('.open-modal-link1');
-// const openModalLink2 = document.querySelector('.open-modal-link2');
-// const openModalLink3 = document.querySelector('.open-modal-link3');
-// const openModalLink4 = document.querySelector('.open-modal-link4');
-// const openModalLink5 = document.querySelector('.open-modal-link5');
-// const openModalLink6 = document.querySelector('.open-modal-link6');
-// const closeModalBtn = document.querySelector('.close-modal');
-
-// openModalLink1.addEventListener('click', (event) => {
-//   event.preventDefault();
-//   modalContainer.style.display = 'block';
-// });
-// openModalLink2.addEventListener('click', (event) => {
-//     event.preventDefault();
-//     modalContainer.style.display = 'block';
-//   });
-//   openModalLink3.addEventListener('click', (event) => {
-//     event.preventDefault();
-//     modalContainer.style.display = 'block';
-//   });
-//   openModalLink4.addEventListener('click', (event) => {
-//     event.preventDefault();
-//     modalContainer.style.display = 'block';
-//   });
-//   openModalLink5.addEventListener('click', (event) => {
-//     event.preventDefault();
-//     modalContainer.style.display = 'block';
-//   });
-//   openModalLink6.addEventListener('click', (event) => {
-//     event.preventDefault();
-//     modalContainer.style.display = 'block';
-//   });
-          
-// closeModalBtn.addEventListener('click', () => {
-//   modalContainer.style.display = 'none';
-// });
-
 
 
 
@@ -337,15 +294,4 @@ openModalLinks.forEach((link) => {
     });
   });
 });
-
-// closeModalBtns.forEach((closeBtn) => {
-//   closeBtn.addEventListener('click', () => {
-//     const modalContainer = closeBtn.closest('.modal-container');
-//     modalContainer.style.display = 'none';
-//   });
-// });
-
-
-
-
 

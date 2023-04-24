@@ -27,12 +27,13 @@
     </div>
 
     <div class="navbar">
+      
         <nav class="nav" >
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
-              <li><a href="#">Careers</a></li>
+              <li ><a href="#">Home</a></li>
+              <li ><a href="#">About</a></li>
+              <li ><a href="#">Contact</a></li>
+              <li ><a href="#">Careers</a></li>
               <li id="signin"><a href="#">Sign In</a></li>
             </ul>
           </nav>
@@ -59,15 +60,26 @@
 </div>
 
 <div class="search-bar">
-    <form action="#" method="get">
-        <label for="search-input"></label>
-        <input type="text" id="search-input" placeholder="Search...">
-        <button type="submit"><img src="search-bar.png" alt="Search"></button>
+    <form action="search.html" method="GET">
+      <label for="search-input"></label>
+      <input type="text" id="search-input" name='q' placeholder="Search...">
+      <button type="submit"><img src="search-bar.png" alt="Search"></button> 
+
+    </form>
 
 
-      </form>
-      
-</div>
+    <form action="search.html" method="GET">
+      <label for="cars">choose a car:</label>
+
+      <select name="type" id="type">
+        <option value="part-time">Part Time</option>
+        <option value="full-time">Full Time</option>
+      </select>
+      <button type="submit"><img src="search-bar.png" alt="Search"></button> 
+
+    </form>
+
+  </div>
 
 </div>
 
@@ -335,15 +347,20 @@
       <div class="modal-content1">
         <h3>Job-title </h3> 
         <input type="text" id="tittle-input" placeholder="Enter Job tittle...">             
-        <h4></h4>
+        <h4>Location</h4>
+        <input type="text" id="location-input" placeholder="Enter Location...">
         <p>Job Overview :-  </p>
+        <input type="text" id="overview-input" placeholder="Enter overview...">
         <hr>
         <p>Requirements :-</p>
+        <input type="text" id="Requirements-input" placeholder="Enter Requirements...">
         <hr>
         <p>Work involved </p>
+        <input type="text" id="work-input" placeholder="Enter work...">
         <hr>
        
-        <h3></h3>
+        <h3>Company</h3>
+        <input type="text" id="company-input" placeholder="Enter company...">
        
     
 
